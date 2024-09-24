@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Buttons</title>
+</head>
+<body>
+    <h1>Employee Buttons</h1>
+    <div>
+        {% for employee in employees %}
+            <button>{{ employee }}</button>
+        {% endfor %}
+    </div>
+</body>
+</html>
