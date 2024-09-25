@@ -1,0 +1,97 @@
+/* styles.css */
+
+body {
+    font-family: 'Vazirmatn', sans-serif;
+    background-color: #f4f4f9;
+    color: #333;
+    text-align: center;
+    padding: 50px;
+}
+
+h1 {
+    font-family: 'Vazirmatn', sans-serif;
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    color: #4A90E2;
+}
+
+nav {
+    margin-bottom: 20px;
+}
+
+nav a {
+    margin: 0 15px;
+    text-decoration: none;
+    color: #4A90E2;
+    font-size: 1.2em;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+.button-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+/* Styling for "شروع جلسه" (initial) */
+#start-stop {
+    background-color: #66CC00; /* Green */
+    color: white;
+}
+
+/* Styling for "اتمام جلسه" (after click) */
+#start-stop.end-session {
+    background-color: #FFFF00; /* Yellow */
+    color: black;
+}
+
+/* Styling for the "ارسال" button */
+#reset {
+    background-color: #66FFFF; /* Light cyan */
+    color: black;
+}
+
+#action-buttons button {
+    width: 150px; /* Adjust the button width as needed */
+}
+
+button {
+    font-family: 'Vazirmatn', sans-serif;
+    background-color: red;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    width: 100%;
+    transition: background-color 0.3s;
+}
+
+button.active {
+    background-color: green;
+}
+
+#timer-container {
+    margin-top: 30px;
+}
+
+#timer {
+    font-size: 2em;
+    margin-bottom: 20px;
+}
+
+#action-buttons {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+

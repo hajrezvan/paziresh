@@ -1,0 +1,233 @@
+/* styles.css */
+
+/* Modal styles */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+    padding-top: 60px;
+}
+
+/* Modal Content */
+.modal-content {
+    background-color: #fefefe;
+    margin: 5% auto; /* Centered */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 30%; /* Reduced width */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow for depth */
+}
+
+/* Reduce button length */
+#openModal, .modal-content button {
+    width: auto; /* Set width to auto to reduce length */
+}
+
+/* Form group styles */
+.form-group {
+    margin-bottom: 15px; /* Spacing between form elements */
+}
+
+/* Input styles */
+input {
+    width: 100%; /* Full width for inputs */
+    padding: 10px; /* Padding for inputs */
+    border: 1px solid #ccc; /* Border for inputs */
+    border-radius: 5px; /* Rounded corners */
+    box-sizing: border-box; /* Ensures padding does not affect width */
+}
+
+/* Form field styles */
+label {
+    font-size: 16px; /* Font size for labels */
+}
+
+/* Button styles */
+.modal-content button {
+    width: auto; /* Set width to auto to reduce length */
+    align-self: flex-start; /* Align the button to the start */
+}
+
+/* Close button */
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+    .modal-content {
+        width: 90%; /* Wider for smaller screens */
+    }
+
+    nav a {
+        display: block; /* Stack links on smaller screens */
+        margin: 5px 0; /* Space between stacked links */
+    }
+
+    table {
+        font-size: 14px; /* Smaller font size for mobile */
+    }
+}
+
+@media (max-width: 480px) {
+    .modal-content {
+        width: 95%; /* Full width for very small screens */
+    }
+
+    h1 {
+        font-size: 24px; /* Smaller heading for mobile */
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+table, th, td {
+    border: 1px solid #333;
+}
+
+/* Table alignment */
+table {
+    width: 100%; /* Full width for table */
+    border-collapse: collapse; /* No space between borders */
+}
+
+th, td {
+    text-align: center; /* Align table text to the right */
+    padding: 8px; /* Padding for cells */
+}
+
+th {
+    background-color: #87bcce; /* Light gray background for headers */
+}
+
+body {
+    font-family: 'Vazirmatn', sans-serif;
+    background-color: #f4f4f9;
+    color: #333;
+    text-align: center;
+    padding: 50px;
+}
+
+h1 {
+    font-family: 'Vazirmatn', sans-serif;
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    color: #4A90E2;
+}
+
+
+
+
+
+
+
+
+/* Navigation styles */
+nav {
+    text-align: center; /* Align text to the right for RTL */
+    padding: 10px; /* Add padding */
+}
+
+nav a {
+    margin-left: 15px; /* Space between links */
+    text-decoration: none;
+    color: #4A90E2;
+    font-size: 1.2em;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+/* Navigation links */
+.nav-links {
+    display: flex; /* Display links inline */
+}
+
+@media (max-width: 768px) {
+    .hamburger {
+        display: block; /* Show hamburger icon on smaller screens */
+    }
+
+    .nav-links {
+        display: none; /* Hide links by default */
+        flex-direction: column; /* Stack links vertically */
+    }
+
+    .nav-links.active {
+        display: flex; /* Show links when active */
+    }
+}
+
+/* Hamburger Menu */
+.hamburger {
+    display: none; /* Hidden by default on large screens */
+    font-size: 30px; /* Size of the hamburger icon */
+    cursor: pointer; /* Pointer cursor */
+}
+
+
+
+
+button {
+    font-family: 'Vazirmatn', sans-serif;
+    border: none;
+    text-align: center;
+    margin-top: 30px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+/* Button styles */
+button {
+    background-color: blue; /* Button color */
+    color: white; /* Text color */
+    border: none; /* No border */
+    border-radius: 5px; /* Rounded corners */
+    padding: 10px 15px; /* Padding */
+    font-size: 16px; /* Font size */
+    cursor: pointer; /* Pointer on hover */
+    transition: background-color 0.3s; /* Transition for hover effect */
+}
+
+button:hover {
+    background-color: darkblue; /* Darker blue on hover */
+}
