@@ -7,7 +7,7 @@ on:
     branches: [ master ]
 
 jobs:
-  build:
+  build_and_test:
     runs-on: ubuntu-latest
     
     steps:
@@ -23,5 +23,10 @@ jobs:
         python -m pip install --upgrade pip
         pip install -r requirements.txt
     
-    - name: Run server
-      run: flask run
+    - name: Run Tests
+      run: pytest tests/
+      
+    - name: Build Docker Image
+      id: docker_build
+      run: |
+        docker build -t flask-app .

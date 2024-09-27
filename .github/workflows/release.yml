@@ -1,4 +1,4 @@
-name: CI/CD for Flask App
+name: Release workflow
 
 on:
   release:
