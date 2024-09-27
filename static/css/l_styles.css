@@ -231,3 +231,27 @@ button {
 button:hover {
     background-color: darkblue; /* Darker blue on hover */
 }
+
+
+/* styles.css */
+
+/* Style for the operations column to ensure it's smaller */
+th[style="width: 80px;"],
+td[style="text-align: center;"] {
+    width: 80px;
+    text-align: center;
+}
+
+/* Smaller delete button */
+.delete-button {
+    background-color: red;
+    color: white;
+    padding: 5px 10px; /* Adjust padding for smaller size */
+    border: none;
+    cursor: pointer;
+    font-size: 12px; /* Smaller font size */
+}
+
+.delete-button:hover {
+    background-color: darkred;
+}

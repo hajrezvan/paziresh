@@ -1,6 +1,6 @@
 # db_connection.py
 
-from sqlalchemy import create_engine, MetaData, Table, select, insert
+from sqlalchemy import create_engine, MetaData, Table, select
 from sqlalchemy.orm import sessionmaker
 
 # MySQL connection URL
@@ -16,6 +16,7 @@ session = Session()
 
 # Reflect the Users table from the database
 users_table = Table('Users', metadata, autoload_with=engine)
+
 
 def get_users():
     """Fetches userid, first name, and last name of all users from the Users table."""

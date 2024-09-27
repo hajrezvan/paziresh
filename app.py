@@ -1,7 +1,9 @@
-from flask import Flask, render_template, request, redirect, url_for
-from db_connection import get_users, add_user
+from flask import Flask, render_template, request, redirect, url_for, flash
+from db_connection import get_users, add_user, users_table, session
+from sqlalchemy import delete
 
 app = Flask(__name__)
+app.secret_key = 'your_secret_key'
 
 @app.route('/')
 def index():
@@ -27,6 +29,22 @@ def add_user_route():
         return redirect(url_for('list_users'))
     else:
         return redirect(url_for('list_users', error=error))
+    
+
+# Route to delete a user
+@app.route('/delete_user/<int:user_id>', methods=['POST'])
+def delete_user(user_id):
+    # Delete the user from the database
+    try:
+        delete_query = delete(users_table).where(users_table.c.userId == user_id)
+        session.execute(delete_query)
+        session.commit()
+        flash('User deleted successfully!', 'success')
+    except Exception as e:
+        session.rollback()
+        flash(f'Error deleting user: {str(e)}', 'danger')
+    
+    return redirect(url_for('list_users'))
 
 if __name__ == '__main__':
     app.run(debug=True)

@@ -24,9 +24,10 @@
     <table>
         <thead>
             <tr>
-                <th>شناسه کاربر</th>
+                <th>شناسه</th>
                 <th>نام</th>
                 <th>نام خانوادگی</th>
+                <th style="width: 80px;">عملیات</th> <!-- Set a smaller width for the operations column -->
             </tr>
         </thead>
         <tbody>
@@ -35,6 +36,12 @@
                 <td>{{ user.userId }}</td>
                 <td>{{ user.firstname }}</td>
                 <td>{{ user.lastname }}</td>
+                <td style="text-align: center;">
+                    <!-- Remove button for each user -->
+                    <form action="{{ url_for('delete_user', user_id=user.userId) }}" method="POST" onsubmit="return confirm('آیا مطمئن هستید که می‌خواهید حذف کنید؟');">
+                        <button type="submit" class="delete-button">حذف</button>
+                    </form>
+                </td>
             </tr>
             {% endfor %}
         </tbody>

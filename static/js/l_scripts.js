@@ -26,3 +26,8 @@ document.getElementById('hamburger').onclick = function() {
     var navLinks = document.getElementById('nav-links');
     navLinks.classList.toggle('active'); // Toggle 'active' class
 };
+
+
+document.getElementById("openModal").addEventListener("click", function() {
+    document.getElementById("addUserModal").style.display = "block";
+});
