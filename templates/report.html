@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>گزارش جلسات</title>
+    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/r_styles.css') }}">
+</head>
+<body>
+    <nav>
+        <a href="/">صفحه اصلی</a>
+        <a href="/list">لیست نفرات</a>
+        <a href="/report">گزارش</a>
+    </nav>
+
+    <h1>گزارش جلسات</h1>
+
+    <table id="meetings-table">
+        <thead>
+            <tr>
+                <th>نام جلسه</th>
+                <th>تاریخ</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for meeting in meetings %}
+            <tr>
+                <td>{{ meeting.name }}</td>
+                <td>{{ meeting.date }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <script src="{{ url_for('static', filename='js/r_scripts.js') }}"></script>
+</body>
+</html>

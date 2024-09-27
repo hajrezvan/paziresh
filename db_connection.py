@@ -1,5 +1,5 @@
 # db_connection.py
-
+from sqlalchemy import Table, Column, String, DateTime, Integer
 from sqlalchemy import create_engine, MetaData, Table, select
 from sqlalchemy.orm import sessionmaker
 
@@ -16,13 +16,32 @@ session = Session()
 
 # Reflect the Users table from the database
 users_table = Table('Users', metadata, autoload_with=engine)
+event_table = Table('EventType', metadata, autoload_with=engine)
+meetings_table = Table('Event', metadata,
+                    Column('name', String(255)),
+                    Column('date', DateTime),
+                    Column('type', Integer)
+                    )
 
+def get_events_type():
+    query = select(event_table.c.id, event_table.c.eventType)
+    result = session.execute(query).fetchall()
+    return result
 
 def get_users():
     """Fetches userid, first name, and last name of all users from the Users table."""
     query = select(users_table.c.userId, users_table.c.firstname, users_table.c.lastname)
     result = session.execute(query).fetchall()
     return result
+
+
+def insert_event(name, date, event_type):
+    """Inserts a new event into the Event table."""
+    print(name + ' ' + str(date) +  ' ' + event_type)              
+    insert_query = meetings_table.insert().values(name=name, date=date, type=event_type)
+    session.execute(insert_query)
+    session.commit()
+    return True, None
 
 def add_user(userid, firstname, lastname):
     """Inserts a new user into the Users table. Returns success status and an error message."""
@@ -42,3 +61,9 @@ def add_user(userid, firstname, lastname):
     except Exception as e:
         session.rollback()
         return False, str(e)
+
+def get_meetings():
+    """Fetches all meetings from the Event table."""
+    query = select(meetings_table.c.name, meetings_table.c.date, meetings_table.c.type)
+    result = session.execute(query).fetchall()
+    return result
