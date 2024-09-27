@@ -23,5 +23,5 @@ jobs:
         python -m pip install --upgrade pip
         pip install -r requirements.txt
     
-    - name: Run server
-      run: flask run
+    - name: Done
+      run: echo "Done! 😀"
