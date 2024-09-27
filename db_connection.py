@@ -17,11 +17,8 @@ session = Session()
 # Reflect the Users table from the database
 users_table = Table('Users', metadata, autoload_with=engine)
 event_table = Table('EventType', metadata, autoload_with=engine)
-meetings_table = Table('Event', metadata,
-                    Column('name', String(255)),
-                    Column('date', DateTime),
-                    Column('type', Integer)
-                    )
+event_detail_table = Table('EventDetail', metadata, autoload_with=engine)
+meetings_table = Table('Event', metadata, autoload_with=engine)
 
 def get_events_type():
     query = select(event_table.c.id, event_table.c.eventType)
@@ -67,3 +64,18 @@ def get_meetings():
     query = select(meetings_table.c.name, meetings_table.c.date, meetings_table.c.type)
     result = session.execute(query).fetchall()
     return result
+
+
+def insert_event_detail(user_id, event_id, time_in_meeting):
+    """Insert user meeting details into EventDetail table."""
+    try:
+        insert_query = event_detail_table.insert().values(
+            userId=user_id, 
+            eventId=event_id, 
+            time_in_meeting=time_in_meeting
+        )
+        session.execute(insert_query)
+        session.commit()
+    except Exception as e:
+        session.rollback()
+        raise e

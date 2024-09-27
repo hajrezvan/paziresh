@@ -6,13 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>سامانه حضور و غیاب</title>
     <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400&display=swap" rel="stylesheet">
-    <!-- Link to external CSS -->
     <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
 </head>
 
 <body>
-
-    <!-- Navbar -->
     <nav>
         <a href="/">صفحه اصلی</a>
         <a href="/list">لیست نفرات</a>
@@ -21,6 +18,7 @@
 
     <!-- Button to trigger the modal -->
     <button id="new-meeting-btn" onclick="openNewMeetingModal()">جلسه جدید</button>
+
     <!-- Modal for creating a new meeting -->
     <div id="new-meeting-modal" class="modal">
         <div class="modal-content">
@@ -30,27 +28,28 @@
             <form id="new-meeting-form" action="{{ url_for('add_meeting') }}" method="POST">
                 <label for="meeting-name">نام جلسه:</label>
                 <input type="text" id="meeting-name" name="meeting_name" required>
-            
+
                 <label for="event-selector">انتخاب رویداد:</label>
                 <select id="event-selector" name="event_id" required>
                     {% for event in events %}
-                        <option value="{{ event.id }}">{{ event.eventType }}</option>
+                    <option value="{{ event.id }}">{{ event.eventType }}</option>
                     {% endfor %}
                 </select>
-            
+
                 <button type="submit">ایجاد جلسه</button>
             </form>
         </div>
     </div>
 
-        <!-- Alert message for success -->
-        {% with messages = get_flashed_messages() %}
-        {% if messages %}
-          <div id="success-alert" class="alert">
-              {{ messages[0] }}
-          </div>
-        {% endif %}
-      {% endwith %}
+
+    <!-- Alert message for success -->
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+    <div id="success-alert" class="alert">
+        {{ messages[0] }}
+    </div>
+    {% endif %}
+    {% endwith %}
 
     <h1>سامانه حضور و غیاب</h1>
     <div class="button-container">
@@ -65,11 +64,11 @@
         <div id="timer">00:00</div>
         <div id="action-buttons">
             <button id="start-stop" onclick="startTimer()">شروع جلسه</button>
-            <button id="reset" onclick="resetTimer()">ارسال</button>
+            <button id="reset" onclick="resetTimer()">بازگردانی زمان</button>
+            <button onclick="submitMeeting()">ارسال اطلاعات</button>
         </div>
     </div>
 
-    <!-- Link to external JavaScript -->
     <script src="{{ url_for('static', filename='js/scripts.js') }}"></script>
 </body>
 
